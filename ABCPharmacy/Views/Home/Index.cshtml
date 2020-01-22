@@ -1,0 +1,41 @@
+﻿@model IEnumerable<ABCPharmacy.Models.Medicine>
+
+@{
+    ViewBag.Title = "ABC Medicine Store";
+}
+
+<h2>Medicine</h2>
+
+<table id="tableMedcineList" class="table table-bordered" border="0" align="center" cellspacing="0"
+       style="width:100%;border:0px;border-top:solid 1px #dddddd;">
+    <thead>
+        <tr>
+            <th rowspan="2">Full Name</th>
+            <th rowspan="2">Brand</th>
+            <th colspan="2">Price</th>
+            <th rowspan="2">Quantity</th>
+            <th rowspan="2">ExpiryDate</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>
+                    @item.FullName
+                </td>
+                <td>@item.Brand</td>
+                <td>@item.Price</td>
+                <td>@item.Quantity</td>
+                <td>@item.ExpiryDate</td>
+            </tr>
+        }
+    </tbody>
+</table>
+<script src="https://code.jquery.com/jquery-3.3.1.js" type="text/javascript"></script>
+<script src="https://cdn.datatables.net/1.10.20/js/jquery.dataTables.min.js" type="text/javascript"></script>
+<script>
+    $(document).ready(function () {
+        $('#tableMedcineList').DataTable();
+    });
+</script>
